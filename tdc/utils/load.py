@@ -70,9 +70,9 @@ def download_wrapper(name, path, dataset_names):
             if os.path.exists(
                     os.path.join(
                         path, name + "-" + str(i + 1) + "." + name2type[name])):
-                print_sys("Found local copy...")
+                print_sys(f"Found local copy of {name}...")
             else:
-                print_sys("Downloading...")
+                print_sys(f"Downloading {name}...")
                 dataverse_download(dataset_path,
                                    path,
                                    name,
@@ -87,9 +87,9 @@ def download_wrapper(name, path, dataset_names):
             os.mkdir(path)
 
         if os.path.exists(os.path.join(path, name + "." + name2type[name])):
-            print_sys("Found local copy...")
+            print_sys(f"Found local copy of {name}...")
         else:
-            print_sys("Downloading...")
+            print_sys(f"Downloading {name}...")
             dataverse_download(dataset_path, path, name, name2type)
 
         return name

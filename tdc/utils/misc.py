@@ -21,6 +21,7 @@ def fuzzy_search(name, dataset_names):
     Raises:
         ValueError: the wrong task name, no name is matched
     """
+    raw_name = name
     name = name.lower()
     if name[:4] == "tdc.":
         name = name[4:]
@@ -28,7 +29,13 @@ def fuzzy_search(name, dataset_names):
         s = name
     else:
         # print("========fuzzysearch=======", dataset_names, name)
-        s = get_closet_match(dataset_names, name)[0]
+        s, score = get_closet_match(dataset_names, name)
+        if s in dataset_names:
+            print_sys(
+                "WARNING: '{}' is not an exact match to any available "
+                "dataset name; resolved to closest match '{}' (similarity "
+                "{:.2f}). If this is not the intended dataset, pass the "
+                "exact dataset name.".format(raw_name, s, score))
     if s in dataset_names:
         return s
     else:
