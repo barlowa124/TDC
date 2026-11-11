@@ -54,10 +54,6 @@ class TestFunctions(unittest.TestCase):
             shutil.rmtree(os.path.join(os.getcwd(), "oracle"))
 
 
-if __name__ == "__main__":
-    unittest.main()
-
-
 class TestLabelUtils(unittest.TestCase):
     """Unit conversions in tdc.utils.label (#392)."""
 
@@ -88,3 +84,7 @@ class TestLabelUtils(unittest.TestCase):
         y = np.array([5.0, 50.0, 500.0])
         self.assertTrue(
             np.allclose(convert_back_log(convert_to_log(y)), y, rtol=1e-3))
+
+
+if __name__ == "__main__":
+    unittest.main()
