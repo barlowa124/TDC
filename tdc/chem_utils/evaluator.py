@@ -448,8 +448,8 @@ def fcd_distance_torch(generated_smiles_lst, training_smiles_lst):
 def fcd_distance(generated_smiles_lst, training_smiles_lst):
     """Evaluate FCD score between generated smiles set and training smiles set.
 
-    Returns the FCD score exp(-0.2 * FCD), where FCD is the raw Frechet
-    distance. Higher is better.
+    Despite the name, this returns the FCD score exp(-0.2 * FCD), not the
+    raw Frechet distance. Higher is better.
 
     Args:
       generated_smiles_lst: list (of SMILES string), which are generated.
